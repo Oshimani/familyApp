@@ -30,6 +30,3 @@ const shoppingRoutes: Routes = [
     providers: []
 })
 export class ShoppingListModule { }
-export { ShoppingListComponent } from './shopping-list.component';
-export { ListComponent } from './list/list.component';
-export { DetailComponent } from './detail/detail.component';

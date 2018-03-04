@@ -13,9 +13,6 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 
 import { CounterComponent } from './counter/counter.component';
 
-// Modules
-import { ShoppingListModule } from './shopping-list/shopping-list.module';
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,7 +25,6 @@ import { ShoppingListModule } from './shopping-list/shopping-list.module';
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ShoppingListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

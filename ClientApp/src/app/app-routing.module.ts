@@ -10,6 +10,7 @@ const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'shopping-list', loadChildren: './shopping-list/shopping-list.module#ShoppingListModule' },
     // { path: 'shopping-list', loadChildren: () => ShoppingListModule },
+    { path: 'appointment', loadChildren: './appointment/appointment.module#AppointmentModule'},
     { path: 'counter', component: CounterComponent },
     // { path: '**', component: PageNotFoundComponent },
 ];
