@@ -1,3 +1,5 @@
+using FamilyApp.Appointments.Interfaces;
+using FamilyApp.Appointments.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
@@ -19,6 +21,8 @@ namespace familyApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            services.AddTransient<IAppointmentService, AppointmentService>();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

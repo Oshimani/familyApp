@@ -13,9 +13,9 @@ export class AppointmentService {
         const body: string = JSON.stringify(appointment);
 
         const httpOptions = {
-            headers: new HttpHeaders({ 'ContentType': 'application/json' })
+            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
         };
 
-        return this.http.post(this.baseUrl + 'api/SampleData/WeatherForecasts', body, httpOptions);
+        return this.http.post('api/appointment', body, httpOptions);
     }
 }

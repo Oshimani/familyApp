@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { AppointmentType } from '../enums/appointment-type.enum';
 import { Appointment } from '../models/appointment.model';
+import { AppointmentService } from '../services/appointment.service';
 
 @Component({
     selector: 'app-new',
