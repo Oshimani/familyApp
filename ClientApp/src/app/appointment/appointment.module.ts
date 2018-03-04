@@ -1,9 +1,15 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
 
+import { CoreModule } from '../core/core.module';
+
+// Components
 import { AppointmentComponent } from './appointment.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { NewComponent } from './new/new.component';
+
+// Services
+import { AppointmentService } from './services/appointment.service';
 
 const appointmentRoutes: Routes = [
     {
@@ -20,10 +26,11 @@ const appointmentRoutes: Routes = [
 @NgModule({
     declarations: [
         AppointmentComponent,
-        CalendarComponent
+        CalendarComponent,
+        NewComponent
     ],
-    imports: [CommonModule, RouterModule.forChild(appointmentRoutes)],
+    imports: [CoreModule, RouterModule.forChild(appointmentRoutes)],
     exports: [],
-    providers: []
+    providers: [AppointmentService]
 })
 export class AppointmentModule { }

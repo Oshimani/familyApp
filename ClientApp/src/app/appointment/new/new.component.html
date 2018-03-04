@@ -1,0 +1,79 @@
+<button type="button" class="btn btn-primary" (click)="showNewForm()">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+    Neuer Termin
+</button>
+
+<!-- New Appointment Sidebar -->
+<div class="sidebar" *ngIf="displayNewForm">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="row">
+            <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                <h3>Neuen Termin anlegen</h3>
+            </div>
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                <button type="button" class="close" aria-hidden="true" (click)="hideNewForm()">&times;</button>
+            </div>
+        </div>
+        <!-- Input Name -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="appointmnet-name-id">Name:</label>
+                <input id="appointmnet-name-id" type="text" class="form-control" required="required" [(ngModel)]="appointment.name">
+            </div>
+        </div>
+        <!-- Input Date -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="appointmnet-date-id">Datum:</label>
+                <input id="appointmnet-date-id" type="date" class="form-control" required="required" [(ngModel)]="appointment.date">
+            </div>
+        </div>
+        <!-- Input Duration -->
+        <!-- <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label>Dauer:</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio">
+                        Radio Box
+                    </label>
+                </div>
+                
+            </div>
+        </div> -->
+        <!-- Input Type -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <label for="appointmnet-name-id">Art:</label>
+                
+                <div class="radio" *ngFor="let type of appointmentTypes | enumToArray">
+                    <label>
+                        <input type="radio" [value]="type" name="contentType" [(ngModel)]="appointment.contentType">
+                        {{type}}
+                    </label>
+                </div>
+                
+            </div>
+        </div>
+        <!-- Save Button -->
+        
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                
+                <button type="button" class="btn btn-success" (click)="saveClicked()">Speichern</button>
+                
+            </div>
+            
+        </div>
+        
+        <div class="row">
+            
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <pre>{{appointment|json}}</pre>
+            </div>
+            
+        </div>
+        
+    </div>
+</div>
