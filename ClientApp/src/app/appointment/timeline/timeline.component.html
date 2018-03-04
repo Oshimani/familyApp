@@ -1,0 +1,29 @@
+<div class="row">
+
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h3>Timeline</h3>
+    </div>
+    <!-- Timeline -->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <!-- <ul class="list-group">
+            <li *ngFor="let appointment of appointments" class="list-group-item">{{appointment.name}}</li>
+        </ul> -->
+        <div class="list-group">
+            <a *ngFor="let appointment of appointments" href="#" class="list-group-item">
+                <h4 class="list-group-item-heading">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                            {{appointment.date | date:'d.MMM yy':'':'de'}}
+                        </div>
+                        <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                            <div class="pull-right timeline-entry-name">
+                                {{appointment.name}}
+                            </div>
+                        </div>
+                    </div>
+                </h4>
+                <p class="list-group-item-text">Content goes here</p>
+            </a>
+        </div>
+    </div>
+</div>

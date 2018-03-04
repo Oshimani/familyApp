@@ -7,6 +7,7 @@ import { CoreModule } from '../core/core.module';
 import { AppointmentComponent } from './appointment.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { NewComponent } from './new/new.component';
+import { TimelineComponent } from './timeline/timeline.component';
 
 // Services
 import { AppointmentService } from './services/appointment.service';
@@ -16,7 +17,8 @@ const appointmentRoutes: Routes = [
         path: '',
         component: AppointmentComponent,
         children: [
-            { path: '', redirectTo: 'calendar', pathMatch: 'full' },
+            { path: '', redirectTo: 'timeline', pathMatch: 'full' },
+            { path: 'timeline', component: TimelineComponent},
             { path: 'calendar', component: CalendarComponent },
             // { path: '**', component: ListComponent },
         ]
@@ -27,6 +29,7 @@ const appointmentRoutes: Routes = [
     declarations: [
         AppointmentComponent,
         CalendarComponent,
+        TimelineComponent,
         NewComponent
     ],
     imports: [CoreModule, RouterModule.forChild(appointmentRoutes)],

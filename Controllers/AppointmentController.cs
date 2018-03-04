@@ -31,5 +31,20 @@ namespace familyApp.Controllers
                 return StatusCode(500, ex);
             }
         }
+
+        // Get all Appointments
+        [HttpGet]
+        public async Task<IActionResult> getAll()
+        {
+            try
+            {
+                IList<Appointment> result = await this.appointmentService.getAll();
+                return Json(result);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, ex);
+            }
+        }
     }
 }

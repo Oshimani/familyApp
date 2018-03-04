@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { AppointmentType } from '../enums/appointment-type.enum';
 import { Appointment } from '../models/appointment.model';
@@ -10,6 +10,8 @@ import { AppointmentService } from '../services/appointment.service';
     styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
+    @Output() appointmentAdded: EventEmitter<Appointment> = new EventEmitter<Appointment>();
+
     private displayNewForm: boolean = false;
     private displayResult: boolean = false;
     private resultStatus: number;
@@ -43,6 +45,7 @@ export class NewComponent implements OnInit {
                     console.log(result);
                     this.resultStatus = result.status;
                     this.displayResult = true;
+                    this.appointmentAdded.emit(this.appointment);
 
                     setTimeout(() => {
                         this.displayResult = false;

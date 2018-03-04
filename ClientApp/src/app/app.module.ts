@@ -1,7 +1,13 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+
+import { registerLocaleData } from '@angular/common';
+import localeDe from '@angular/common/locales/de';
+import localeDeExtra from '@angular/common/locales/extra/de';
+
+registerLocaleData(localeDe, 'de', localeDeExtra);
 
 // App Routing
 import { AppRoutingModule } from './app-routing.module';
@@ -26,7 +32,7 @@ import { CounterComponent } from './counter/counter.component';
     FormsModule,
     AppRoutingModule,
   ],
-  providers: [],
+  providers: [{ provide: LOCALE_ID, useValue: 'de' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
