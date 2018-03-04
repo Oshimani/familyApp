@@ -45,35 +45,34 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label for="appointmnet-name-id">Art:</label>
-                
                 <div class="radio" *ngFor="let type of appointmentTypes | enumToArray">
                     <label>
-                        <input type="radio" [value]="type" name="contentType" [(ngModel)]="appointment.contentType">
-                        {{type}}
+                        <input type="radio" [value]="type" name="contentType" [(ngModel)]="appointment.contentType"> {{type}}
                     </label>
                 </div>
-                
             </div>
         </div>
         <!-- Save Button -->
-        
         <div class="row">
-            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                
                 <button type="button" class="btn btn-success" (click)="saveClicked()">Speichern</button>
-                
             </div>
-            
         </div>
-        
         <div class="row">
-            
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <pre>{{appointment|json}}</pre>
             </div>
-            
         </div>
-        
     </div>
+</div>
+
+<!-- Success Result -->
+<div *ngIf="displayResult && resultStatus >= 200 && resultStatus <= 300" class="alert alert-success result">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Gespeichert!</strong> Termin wurde gespeichert.
+</div>
+<!-- Error Result -->
+<div *ngIf="displayResult && resultStatus >= 400" class="alert alert-danger result">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>Fehler!</strong> Termin wurde <strong>nicht</strong> gespeichert.
 </div>

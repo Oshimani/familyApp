@@ -18,3 +18,11 @@
         height: 100%;
     }
 }
+
+.result {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+    bottom: 5px;
+}

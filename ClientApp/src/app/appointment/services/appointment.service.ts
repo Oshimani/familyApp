@@ -11,11 +11,7 @@ export class AppointmentService {
 
     submitNew(appointment: Appointment): Observable<any> {
         const body: string = JSON.stringify(appointment);
-
-        const httpOptions = {
-            headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-        };
-
-        return this.http.post('api/appointment', body, httpOptions);
+        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        return this.http.post('api/appointment', body, { headers: headers, observe: 'response' });
     }
 }

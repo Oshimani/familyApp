@@ -11,13 +11,18 @@ import { AppointmentService } from '../services/appointment.service';
 })
 export class NewComponent implements OnInit {
     private displayNewForm: boolean = false;
+    private displayResult: boolean = false;
+    private resultStatus: number;
     private appointmentTypes = AppointmentType;
 
     private appointment: Appointment = new Appointment();
 
     constructor(private appointmentService: AppointmentService) { }
 
-    ngOnInit() { }
+    ngOnInit() {
+        // ToDo: Allow no all day long Appointments
+        this.appointment.duration = 24 * 60;
+    }
 
     private showNewForm() {
         this.displayNewForm = true;
@@ -34,10 +39,19 @@ export class NewComponent implements OnInit {
     private submit() {
         this.appointmentService.submitNew(this.appointment)
             .subscribe(
-                result => {
+                (result: Response) => {
                     console.log(result);
-                }, error => {
+                    this.resultStatus = result.status;
+                    this.displayResult = true;
+
+                    setTimeout(() => {
+                        this.displayResult = false;
+                        this.hideNewForm();
+                    }, 3000);
+                }, (error: Response) => {
                     console.error(error);
+                    this.displayResult = true;
+                    this.resultStatus = error.status;
                 }
             );
     }
