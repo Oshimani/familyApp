@@ -9,6 +9,8 @@ import { Appointment } from './models/appointment.model';
     styleUrls: ['./appointment.component.scss']
 })
 export class AppointmentComponent implements OnInit {
+    private displayError: boolean = false;
+
     constructor(private appointmentService: AppointmentService) { }
 
     ngOnInit() {
@@ -25,6 +27,7 @@ export class AppointmentComponent implements OnInit {
                 },
                 error => {
                     console.error(error);
+                    this.displayError = true;
                 }
             );
     }

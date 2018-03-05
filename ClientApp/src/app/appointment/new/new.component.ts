@@ -22,7 +22,7 @@ export class NewComponent implements OnInit {
     constructor(private appointmentService: AppointmentService) { }
 
     ngOnInit() {
-        // ToDo: Allow no all day long Appointments
+        // ToDo: Allow non-all-day long Appointments
         this.appointment.duration = 24 * 60;
     }
 

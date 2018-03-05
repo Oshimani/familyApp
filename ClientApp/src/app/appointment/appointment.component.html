@@ -10,8 +10,16 @@
     </div>
 </div>
 <!-- Router Outlet -->
-<div class="row">
+<div class="row" *ngIf="!displayError">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <router-outlet></router-outlet>
+    </div>
+</div>
+<!-- Error Message -->
+<div class="row" *ngIf="displayError">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="well error-well">
+            Fehler beim Laden der Termine.
+        </div>
     </div>
 </div>
